@@ -13,6 +13,7 @@ spec:
     matchLabels:
       application: gateway
       deployment: gateway
+      version: v1
   strategy:
     rollingUpdate:
       maxSurge: 1
