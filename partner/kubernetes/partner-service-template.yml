@@ -4,14 +4,16 @@ metadata:
   annotations:
     deployment.kubernetes.io/revision: "1"
   labels:
-    app: gateway-service
-    application: gateway-service
-  name: gateway-service
+    app: partner
+    application: partner
+    version: v1
+
+  name: partner
 spec:
   selector:
     matchLabels:
-      application: gateway-service
-      deployment: gateway-service
+      application: partner
+      deployment: partner
   strategy:
     rollingUpdate:
       maxSurge: 1
@@ -20,14 +22,15 @@ spec:
   template:
     metadata:
       labels:
-        application: gateway-service
-        deployment: gateway-service
+        application: partner
+        deployment: partner
+        version: v1
 
       # Enable Red Hat Service Mesh's automatic istio sidecar injection
       annotations:
         sidecar.istio.io/inject: "true"
 
-      name: gateway-service
+      name: partner
     spec:
       containers:
       - env:
@@ -38,7 +41,7 @@ spec:
               fieldPath: metadata.namespace
 
         # Use OpenTracing enabled image
-        image: docker.io/rhtgptetraining/foundation-gateway-service:1.0
+        image: docker.io/rhtgptetraining/foundation-partner-service:1.0
 
         livenessProbe:
           failureThreshold: 2
@@ -50,7 +53,7 @@ spec:
           periodSeconds: 10
           successThreshold: 1
           timeoutSeconds: 1
-        name: gateway-service
+        name: partner
         readinessProbe:
           failureThreshold: 3
           httpGet:

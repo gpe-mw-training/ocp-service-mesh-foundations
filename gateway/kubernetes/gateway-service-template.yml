@@ -6,6 +6,7 @@ metadata:
   labels:
     app: gateway
     application: gateway
+    version: v1
   name: gateway
 spec:
   selector:
@@ -22,6 +23,7 @@ spec:
       labels:
         application: gateway
         deployment: gateway
+        version: v1
 
       # Enable Red Hat Service Mesh's automatic istio sidecar injection
       annotations:
