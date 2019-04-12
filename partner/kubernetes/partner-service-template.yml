@@ -8,12 +8,13 @@ metadata:
     application: partner
     version: v1
 
-  name: partner
+  name: partner-v1
 spec:
   selector:
     matchLabels:
       application: partner
       deployment: partner
+      version: v1
   strategy:
     rollingUpdate:
       maxSurge: 1

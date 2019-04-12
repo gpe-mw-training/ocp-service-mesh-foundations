@@ -7,12 +7,14 @@ metadata:
     app: catalog
     application: catalog
     version: v1
-  name: catalog
+
+  name: catalog-v1
 spec:
   selector:
     matchLabels:
       application: catalog
       deployment: catalog
+      version: v1
   strategy:
     rollingUpdate:
       maxSurge: 1
