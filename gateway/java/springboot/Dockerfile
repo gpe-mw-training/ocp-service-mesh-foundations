@@ -1,15 +1,15 @@
 # Build:
 #   mvn clean package
-#   docker build --rm -t foundation-gateway-service:1.0 .
-#   docker tag foundation-gateway-service:1.0 docker.io/rhtgptetraining/foundation-gateway-service:1.0
+#   docker build --rm -t foundation-gateway-service:1.0.1 .
+#   docker tag foundation-gateway-service:1.0.1 docker.io/rhtgptetraining/foundation-gateway-service:1.0.1
 
 # Docker push (on F28):
 #   Make sure the following is the *first* entry in the docker daemon (by updating /etc/sysconfig/docker):  --add-registry docker.io
 #   docker login docker.io -u rhtgptetraining
-#   docker push docker.io/rhtgptetraining/foundation-gateway-service:1.0
+#   docker push docker.io/rhtgptetraining/foundation-gateway-service:1.0.1
 
 # Execution: OpenShift
-#   oc run foundation-gateway-service --image=docker.io/rhtgptetraining/foundation-gateway-service:1.0
+#   oc run foundation-gateway-service --image=docker.io/rhtgptetraining/foundation-gateway-service:1.0.1
 
 FROM fabric8/java-jboss-openjdk8-jdk:1.3.1
 ENV JAVA_APP_DIR=/deployments

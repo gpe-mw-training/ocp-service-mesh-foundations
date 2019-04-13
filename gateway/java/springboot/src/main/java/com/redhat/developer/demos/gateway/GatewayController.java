@@ -1,6 +1,5 @@
 package com.redhat.developer.demos.gateway;
 
-import io.opentracing.Tracer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +24,6 @@ public class GatewayController {
     @Value("${partner.api.url:http://partner:8080}")
     private String remoteURL;
 
-    @Autowired
-    private Tracer tracer;
-
     public GatewayController(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
@@ -38,7 +34,7 @@ public class GatewayController {
             /**
              * Set baggage
              */
-            tracer.activeSpan().setBaggageItem("user-agent", userAgent);
+            // tracer.activeSpan().setBaggageItem("user-agent", userAgent);
 
             // ResponseEntity<String> responseEntity = restTemplate.getForEntity(remoteURL, String.class);
             // String response = responseEntity.getBody();
