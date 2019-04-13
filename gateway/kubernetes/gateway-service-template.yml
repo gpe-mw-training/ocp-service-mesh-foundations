@@ -45,10 +45,10 @@ spec:
 
         livenessProbe:
           failureThreshold: 2
-          httpGet:
-            path: /health/liveness
-            port: 8080
-            scheme: HTTP
+          exec:
+            command:
+            - curl
+            - localhost:8080/health
           initialDelaySeconds: 60
           periodSeconds: 10
           successThreshold: 1
@@ -56,10 +56,10 @@ spec:
         name: gateway
         readinessProbe:
           failureThreshold: 3
-          httpGet:
-            path: /health/readiness
-            port: 8080
-            scheme: HTTP
+          exec:
+            command:
+            - curl
+            - localhost:8080/health
           initialDelaySeconds: 20
           periodSeconds: 10
           successThreshold: 1
