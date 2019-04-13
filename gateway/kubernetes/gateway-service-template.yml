@@ -44,23 +44,23 @@ spec:
         image: docker.io/rhtgptetraining/foundation-gateway-service:1.0.1
 
         livenessProbe:
-          failureThreshold: 2
-          exec:
-            command:
-            - curl
-            - localhost:8080/health
-          initialDelaySeconds: 60
+          failureThreshold: 3
+          httpGet:
+            path: /health
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 40
           periodSeconds: 10
           successThreshold: 1
           timeoutSeconds: 1
         name: gateway
         readinessProbe:
           failureThreshold: 3
-          exec:
-            command:
-            - curl
-            - localhost:8080/health
-          initialDelaySeconds: 60
+          httpGet:
+            path: /health
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 40
           periodSeconds: 10
           successThreshold: 1
           timeoutSeconds: 1
