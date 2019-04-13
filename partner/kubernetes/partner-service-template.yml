@@ -42,12 +42,12 @@ spec:
               fieldPath: metadata.namespace
 
         # Use OpenTracing enabled image
-        image: docker.io/rhtgptetraining/foundation-partner-service:1.0
+        image: docker.io/rhtgptetraining/foundation-partner-service:1.0.0
 
         livenessProbe:
           failureThreshold: 2
           httpGet:
-            path: /health/liveness
+            path: /health
             port: 8080
             scheme: HTTP
           initialDelaySeconds: 60
@@ -58,7 +58,7 @@ spec:
         readinessProbe:
           failureThreshold: 3
           httpGet:
-            path: /health/readiness
+            path: /health
             port: 8080
             scheme: HTTP
           initialDelaySeconds: 20
