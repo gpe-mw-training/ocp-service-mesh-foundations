@@ -28,8 +28,8 @@ spec:
         version: v1
 
       # Enable Red Hat Service Mesh's automatic istio sidecar injection
-      annotations:
-        sidecar.istio.io/inject: "true"
+      # annotations:
+        # sidecar.istio.io/inject: "true"
 
       name: catalog
     spec:
