@@ -41,7 +41,6 @@ spec:
               apiVersion: v1
               fieldPath: metadata.namespace
 
-        # Use OpenTracing enabled image
         image: docker.io/rhtgptetraining/foundation-catalog-service:1.0.0
 
         livenessProbe:
