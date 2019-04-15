@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.redhat.developer.demos</groupId>
     <artifactId>foundation-gateway-service</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <packaging>jar</packaging>
     <name>foundation-gateway-service</name>
     <description>Demo project for Spring Boot</description>

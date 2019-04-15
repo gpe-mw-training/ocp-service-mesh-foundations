@@ -36,9 +36,8 @@ public class GatewayController {
              */
             // tracer.activeSpan().setBaggageItem("user-agent", userAgent);
 
-            // ResponseEntity<String> responseEntity = restTemplate.getForEntity(remoteURL, String.class);
-            // String response = responseEntity.getBody();
-            String response = "hello world";
+            ResponseEntity<String> responseEntity = restTemplate.getForEntity(remoteURL, String.class);
+            String response = responseEntity.getBody();
 
             return ResponseEntity.ok(String.format(RESPONSE_STRING_FORMAT, response.trim()));
         } catch (HttpStatusCodeException ex) {
