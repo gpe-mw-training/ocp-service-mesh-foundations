@@ -41,7 +41,7 @@ spec:
               fieldPath: metadata.namespace
 
         # Use OpenTracing enabled image
-        image: docker.io/rhtgptetraining/foundation-gateway-service:1.0.1
+        image: docker.io/rhtgptetraining/foundation-gateway-service:1.0.2
 
         livenessProbe:
           failureThreshold: 3
