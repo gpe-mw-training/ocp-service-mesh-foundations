@@ -31,7 +31,7 @@ spec:
       annotations:
         sidecar.istio.io/inject: "true"
 
-      name: catalog
+      name: catalog-v1
     spec:
       containers:
       - env:
