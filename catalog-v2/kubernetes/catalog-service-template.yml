@@ -6,15 +6,13 @@ metadata:
   labels:
     app: catalog
     application: catalog
-    version: v1
-
-  name: catalog-v1
+    version: v2
+  name: catalog-v2
 spec:
   selector:
     matchLabels:
       application: catalog
-      deployment: catalog
-      version: v1
+      version: v2
   strategy:
     rollingUpdate:
       maxSurge: 1
@@ -25,7 +23,7 @@ spec:
       labels:
         application: catalog
         deployment: catalog
-        version: v1
+        version: v2
 
       # Enable Red Hat Service Mesh's automatic istio sidecar injection
       annotations:
@@ -41,7 +39,7 @@ spec:
               apiVersion: v1
               fieldPath: metadata.namespace
 
-        image: docker.io/rhtgptetraining/foundation-catalog-service:1.0.0
+        image: docker.io/rhtgptetraining/foundation-catalog-service-v2:1.0.0
 
         livenessProbe:
           failureThreshold: 2
