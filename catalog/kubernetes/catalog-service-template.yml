@@ -41,7 +41,7 @@ spec:
               apiVersion: v1
               fieldPath: metadata.namespace
 
-        image: docker.io/rhtgptetraining/foundation-catalog-service:1.0.0
+        image: docker.io/rhtgptetraining/foundation-catalog-service:1.0.0-b
 
         livenessProbe:
           failureThreshold: 2
