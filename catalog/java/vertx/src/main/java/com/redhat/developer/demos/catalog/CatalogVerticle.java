@@ -11,24 +11,24 @@ import io.vertx.ext.web.RoutingContext;
 
 public class CatalogVerticle extends AbstractVerticle {
 
-    private static final String RESPONSE_STRING_FORMAT = "catalog v1 from '%s': %d\n";
+	private static final String RESPONSE_STRING_FORMAT = "catalog v1 from '%s': %d\n";
 
-    private String HOSTNAME;
-    private int LISTEN_ON;
+	private String HOSTNAME;
+	private int LISTEN_ON;
 
-    private final Logger logger = LoggerFactory.getLogger(getClass());
+	private final Logger logger = LoggerFactory.getLogger(getClass());
 
-    /**
-     * Counter to help us see the lifecycle
-     */
-    private int count = 0;
+	/**
+	 * Counter to help us see the lifecycle
+	 */
+	private int count = 0;
 
-    @Override
-    public void start() throws Exception {
-    	
-    	try {
+	@Override
+	public void start() throws Exception {
+
+		try {
 			logger.info("start(): BEGIN");
-			
+
 			Router router = Router.router(vertx);
 			router.get("/").handler(this::logging);
 			router.get("/").handler(this::getCatalogData);
@@ -39,8 +39,8 @@ public class CatalogVerticle extends AbstractVerticle {
 
 			HOSTNAME = "demo";
 			LISTEN_ON = 8080;
-			
-			logger.info("HOSTNAME = " +         HOSTNAME);
+
+			logger.info("HOSTNAME = " + HOSTNAME);
 			logger.info("LISTEN_ON = " + LISTEN_ON);
 
 			logger.info("start(): starting server");
@@ -49,25 +49,25 @@ public class CatalogVerticle extends AbstractVerticle {
 			logger.info("start() EXCEPTION:" + exc);
 			exc.printStackTrace();
 		}
-    }
+	}
 
-    private void logging(RoutingContext ctx) {
-        logger.info(String.format("catalog request from %s: %d", HOSTNAME, count));
-        ctx.next();
-    }
+	private void logging(RoutingContext ctx) {
+		logger.info(String.format("catalog request from %s: %d", HOSTNAME, count));
+		ctx.next();
+	}
 
-    private void getCatalogData(RoutingContext ctx) {
-            count++;
-            ctx.response().end(String.format(RESPONSE_STRING_FORMAT, HOSTNAME, count));
-    }
+	private void getCatalogData(RoutingContext ctx) {
+		count++;
+		ctx.response().end(String.format(RESPONSE_STRING_FORMAT, HOSTNAME, count));
+	}
 
-    protected static String parseContainerIdFromHostname(String hostname) {
-        return hostname.replaceAll("catalog-v\\d+-", "");
-    }
-    
-    public static void main(String[] args) {
-    	
-        Vertx.vertx().deployVerticle(new CatalogVerticle());
-    }
+	protected static String parseContainerIdFromHostname(String hostname) {
+		return hostname.replaceAll("catalog-v\\d+-", "");
+	}
+
+	public static void main(String[] args) {
+
+		Vertx.vertx().deployVerticle(new CatalogVerticle());
+	}
 
 }
