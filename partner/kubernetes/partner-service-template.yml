@@ -23,6 +23,7 @@ spec:
   template:
     metadata:
       labels:
+        app: partner
         application: partner
         deployment: partner
         version: v1
@@ -43,6 +44,8 @@ spec:
 
         # Use OpenTracing enabled image
         image: docker.io/rhtgptetraining/foundation-partner-service:1.0.0
+        ports:
+        - containerPort: 8080
 
         livenessProbe:
           failureThreshold: 2

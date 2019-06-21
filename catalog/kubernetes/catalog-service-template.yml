@@ -23,6 +23,7 @@ spec:
   template:
     metadata:
       labels:
+        app: catalog
         application: catalog
         deployment: catalog
         version: v1
@@ -42,6 +43,8 @@ spec:
               fieldPath: metadata.namespace
 
         image: docker.io/rhtgptetraining/foundation-catalog-service:1.0.0
+        ports:
+        - containerPort: 8080
 
         livenessProbe:
           failureThreshold: 2

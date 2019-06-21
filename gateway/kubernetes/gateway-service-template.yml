@@ -22,6 +22,7 @@ spec:
   template:
     metadata:
       labels:
+        app: gateway
         application: gateway
         deployment: gateway
         version: v1
@@ -42,6 +43,8 @@ spec:
 
         # Use OpenTracing enabled image
         image: docker.io/rhtgptetraining/foundation-gateway-service:1.0.2
+        ports:
+        - containerPort: 8080
 
         livenessProbe:
           failureThreshold: 3
