@@ -5,15 +5,16 @@ metadata:
   name: catalog
 spec:
   hosts:
-  - catalog
+    - catalog
   http:
-  - route:
-    - destination:
-        host: catalog
-        subset: version-v1
-      weight: 10
-    - destination:
-        host: catalog
-        subset: version-v2
-      weight: 90
+    - route:
+        - destination:
+            host: catalog
+            subset: version-v1
+          weight: 90
+        - destination:
+            host: catalog
+            subset: version-v2
+          weight: 10
 ---
+
